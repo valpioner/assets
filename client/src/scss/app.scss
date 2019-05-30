@@ -1,0 +1,28 @@
+@import "./const.scss";
+@import "./theme.scss";
+
+html, body, #root, .app, main, .main {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-size: .875rem;
+  color: $text-dark;
+
+  .app {
+    display: flex;
+
+    main, .main {  
+      display: flex;
+      flex-direction: column;
+      background-color: #f0f0f0;
+      overflow: auto;
+    }
+
+    .feather, .fas {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}

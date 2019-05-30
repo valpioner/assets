@@ -1,0 +1,107 @@
+@import '../../scss/const.scss';
+
+.sidebar {
+  min-width: 14rem;
+  max-width: 14rem;
+  min-height: 100%;
+  transition: margin .4s ease-in-out;
+
+  @media (max-width: $sm-and-down) {
+    &:not(.sidebar-collapsed) {
+      margin-left: -14rem;
+  
+      &.toggled {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .sidebar-content {
+    background: $gray1;
+    overflow: hidden !important;
+    height: 100%;
+
+    .sidebar-brand {
+      font-weight: 500;
+      font-size: 1.15rem;
+      padding: 1.15rem 1.25rem;
+      color: $text-light-alt;
+      display: block;
+
+      &:hover {
+        text-decoration: none;
+        color: $text-light-alt;
+      }
+
+      .feather, svg {
+        color: $green1;
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-left: -.15rem;
+        margin-right: .75rem;
+      }
+    }
+
+    .sidebar-nav {
+      padding-left: 0;
+
+      .sidebar-nav-header {
+        background: transparent;
+        color: $text-light-alt2;
+        padding: .375rem 1.25rem;
+        font-size: .75rem;
+      }
+
+      .sidebar-dropdown {
+        .sidebar-link {
+          background: $gray0;
+        }
+      }
+
+      .sidebar-link {
+        display: block;
+        padding: .75rem 1.25rem;
+        color: $text-light;
+        transition: background .1s ease-in-out,color .1s ease-in-out;
+        position: relative;
+
+        &:hover {
+          background: $gray2;
+          text-decoration: none;
+        }
+
+        .feather, svg, .fas {
+          margin-right: .75rem;
+          color: $white;
+        }
+
+        .sidebar-badge {
+          position: absolute;
+          right: 15px;
+          top: 14px;
+        }
+      }      
+    }
+
+    [data-toggle=collapse]:before {
+      content: " ";
+      border: solid;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 2px;
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      position: absolute;
+      top: 1.2rem;
+      right: 1.25rem;
+      transition: all .2s ease-out;
+    }
+
+    [aria-expanded=true]:before,
+    [data-toggle=collapse]:not(.collapsed):before {
+      -webkit-transform: rotate(-135deg);
+      transform: rotate(-135deg);
+      top: 1.4rem;
+    }
+  }
+}
