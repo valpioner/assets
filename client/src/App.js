@@ -30,7 +30,6 @@ import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
 
 import "./scss/app.scss";
-import MapContainer from "./components/map/MapContainer";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -64,8 +63,6 @@ class App extends Component {
               <Navbar />
               <main>
                 <Route exact path="/" component={ Landing } />
-                <Switch><PrivateRoute exact path="/map" component={ MapContainer } /></Switch>
-
                 <Route exact path="/register" component={ Register } />
                 <Route exact path="/login" component={ Login } />
                 <Route exact path="/profiles" component={ Profiles } />
