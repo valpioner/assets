@@ -58,11 +58,11 @@ class Navbar extends Component {
     );
 
     return (
-      !isAuthenticated ? '' :
+      // !isAuthenticated ? '' :
       <nav className="navbar navbar-expand navbar-light bg-white">
-        <a className="sidebar-toggler d-flex mr-2">
+        {/* <a className="sidebar-toggler d-flex mr-2">
           <i className="hamburger align-self-center"></i>
-        </a>
+        </a> */}
 
         <div className="navbar-collapse collapse">
           <ul className="navbar-nav ml-auto">
@@ -180,36 +180,6 @@ class Navbar extends Component {
 
           </ul>
         </div>
-
-
-
-
-
-        {/* <div className="container">
-          <Link className="navbar-brand" to="/">
-            MyMaps 0.1
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#mobile-nav"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-
-          <div className="collapse navbar-collapse" id="mobile-nav">
-            <ul className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link className="nav-link" to="/profiles">
-                  {' '}
-                  Developers
-                </Link>
-              </li>
-            </ul>
-            {isAuthenticated ? authLinks : guestLinks}
-          </div>
-        </div> */}
       </nav>
     );
   }

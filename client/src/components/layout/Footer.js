@@ -9,7 +9,7 @@ function Footer({location: {pathname}}) {
   return (
     hideFooter ? null :
     <footer className="p-3 text-center">
-      Copyright &copy; {new Date().getFullYear()} | FUTURE
+      Copyright &copy; {new Date().getFullYear()} | Assets For Rent
     </footer>
   );
 }
