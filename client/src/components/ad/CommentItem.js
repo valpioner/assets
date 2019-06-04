@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteComment } from '../../actions/postActions';
+import { deleteComment } from '../../actions/adActions';
 
 class CommentItem extends Component {
-  onDeleteClick(postId, commentId) {
-    this.props.deleteComment(postId, commentId);
+  onDeleteClick(adId, commentId) {
+    this.props.deleteComment(adId, commentId);
   }
 
   render() {
-    const { comment, postId, auth } = this.props;
+    const { comment, adId, auth } = this.props;
 
     return (
       <div className="card card-body mb-3">
@@ -29,7 +29,7 @@ class CommentItem extends Component {
             <p className="lead">{comment.text}</p>
             {comment.user === auth.user.id ? (
               <button
-                onClick={this.onDeleteClick.bind(this, postId, comment._id)}
+                onClick={this.onDeleteClick.bind(this, adId, comment._id)}
                 type="button"
                 className="btn btn-danger mr-1"
               >
@@ -46,7 +46,7 @@ class CommentItem extends Component {
 CommentItem.propTypes = {
   deleteComment: PropTypes.func.isRequired,
   comment: PropTypes.object.isRequired,
-  postId: PropTypes.string.isRequired,
+  adId: PropTypes.string.isRequired,
   auth: PropTypes.object.isRequired
 };
 

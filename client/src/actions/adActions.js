@@ -1,23 +1,23 @@
 import axios from 'axios';
 
 import {
-  ADD_POST,
+  ADD_AD,
   GET_ERRORS,
   CLEAR_ERRORS,
-  GET_POSTS,
-  GET_POST,
-  POST_LOADING,
-  DELETE_POST
+  GET_ADS,
+  GET_AD,
+  AD_LOADING,
+  DELETE_AD
 } from './types';
 
-// Add Post
-export const addPost = postData => dispatch => {
+// Add Ad
+export const addAd = adData => dispatch => {
   dispatch(clearErrors());
   axios
-    .post('/api/posts', postData)
+    .post('/api/ads', adData)
     .then(res =>
       dispatch({
-        type: ADD_POST,
+        type: ADD_AD,
         payload: res.data
       })
     )
@@ -29,51 +29,51 @@ export const addPost = postData => dispatch => {
     );
 };
 
-// Get Posts
-export const getPosts = () => dispatch => {
-  dispatch(setPostLoading());
+// Get Ads
+export const getAds = () => dispatch => {
+  dispatch(setAdLoading());
   axios
-    .get('/api/posts')
+    .get('/api/ads')
     .then(res =>
       dispatch({
-        type: GET_POSTS,
+        type: GET_ADS,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_POSTS,
+        type: GET_ADS,
         payload: null
       })
     );
 };
 
-// Get Post
-export const getPost = id => dispatch => {
-  dispatch(setPostLoading());
+// Get Ad
+export const getAd = id => dispatch => {
+  dispatch(setAdLoading());
   axios
-    .get(`/api/posts/${id}`)
+    .get(`/api/ads/${id}`)
     .then(res =>
       dispatch({
-        type: GET_POST,
+        type: GET_AD,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_POST,
+        type: GET_AD,
         payload: null
       })
     );
 };
 
-// Delete Post
-export const deletePost = id => dispatch => {
+// Delete Ad
+export const deleteAd = id => dispatch => {
   axios
-    .delete(`/api/posts/${id}`)
+    .delete(`/api/ads/${id}`)
     .then(res =>
       dispatch({
-        type: DELETE_POST,
+        type: DELETE_AD,
         payload: id
       })
     )
@@ -88,8 +88,8 @@ export const deletePost = id => dispatch => {
 // Add Like
 export const addLike = id => dispatch => {
   axios
-    .post(`/api/posts/like/${id}`)
-    .then(res => dispatch(getPosts()))
+    .post(`/api/ads/like/${id}`)
+    .then(res => dispatch(getAds()))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -101,8 +101,8 @@ export const addLike = id => dispatch => {
 // Remove Like
 export const removeLike = id => dispatch => {
   axios
-    .post(`/api/posts/unlike/${id}`)
-    .then(res => dispatch(getPosts()))
+    .post(`/api/ads/unlike/${id}`)
+    .then(res => dispatch(getAds()))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
@@ -112,13 +112,13 @@ export const removeLike = id => dispatch => {
 };
 
 // Add Comment
-export const addComment = (postId, commentData) => dispatch => {
+export const addComment = (adId, commentData) => dispatch => {
   dispatch(clearErrors());
   axios
-    .post(`/api/posts/comment/${postId}`, commentData)
+    .post(`/api/ads/comment/${adId}`, commentData)
     .then(res =>
       dispatch({
-        type: GET_POST,
+        type: GET_AD,
         payload: res.data
       })
     )
@@ -131,12 +131,12 @@ export const addComment = (postId, commentData) => dispatch => {
 };
 
 // Delete Comment
-export const deleteComment = (postId, commentId) => dispatch => {
+export const deleteComment = (adId, commentId) => dispatch => {
   axios
-    .delete(`/api/posts/comment/${postId}/${commentId}`)
+    .delete(`/api/ads/comment/${adId}/${commentId}`)
     .then(res =>
       dispatch({
-        type: GET_POST,
+        type: GET_AD,
         payload: res.data
       })
     )
@@ -149,9 +149,9 @@ export const deleteComment = (postId, commentId) => dispatch => {
 };
 
 // Set loading state
-export const setPostLoading = () => {
+export const setAdLoading = () => {
   return {
-    type: POST_LOADING
+    type: AD_LOADING
   };
 };
 

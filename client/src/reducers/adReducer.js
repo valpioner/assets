@@ -1,45 +1,45 @@
 import {
-  ADD_POST,
-  GET_POSTS,
-  GET_POST,
-  DELETE_POST,
-  POST_LOADING
+  ADD_AD,
+  GET_ADS,
+  GET_AD,
+  DELETE_AD,
+  AD_LOADING
 } from '../actions/types';
 
 const initialState = {
-  posts: [],
-  post: {},
+  ads: [],
+  ad: {},
   loading: false
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case POST_LOADING:
+    case AD_LOADING:
       return {
         ...state,
         loading: true
       };
-    case GET_POSTS:
+    case GET_ADS:
       return {
         ...state,
-        posts: action.payload,
+        ads: action.payload,
         loading: false
       };
-    case GET_POST:
+    case GET_AD:
       return {
         ...state,
-        post: action.payload,
+        ad: action.payload,
         loading: false
       };
-    case ADD_POST:
+    case ADD_AD:
       return {
         ...state,
-        posts: [action.payload, ...state.posts]
+        ads: [action.payload, ...state.ads]
       };
-    case DELETE_POST:
+    case DELETE_AD:
       return {
         ...state,
-        posts: state.posts.filter(post => post._id !== action.payload)
+        ads: state.ads.filter(ad => ad._id !== action.payload)
       };
     default:
       return state;
