@@ -2,7 +2,27 @@
 
 .navbar {
   border-bottom: 1px solid $gray-border;
-  box-shadow: 0 .05rem .2rem rgba(0,0,0,.05);  
+  box-shadow: 0 .05rem .2rem rgba(0,0,0,.05); 
+  
+  .brand {
+    font-weight: 500;
+    font-size: 1.15rem;
+    color: $text-dark;
+    display: block;
+
+    &:hover {
+      text-decoration: none;
+      color: $green1;
+    }
+
+    .feather, svg {
+      color: $green1;
+      height: 1.5rem;
+      width: 1.5rem;
+      margin-left: -.15rem;
+      margin-right: .75rem;
+    }
+  }
 
   .sidebar-toggler {
     cursor: pointer;

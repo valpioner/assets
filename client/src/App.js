@@ -58,7 +58,7 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="app">
-            <Sidebar />
+            {/* <Sidebar /> */}
             <div className="main">
               <Navbar />
               <main>
@@ -72,7 +72,7 @@ class App extends Component {
                 <Switch><PrivateRoute exact path="/edit-profile" component={ EditProfile } /></Switch>
                 <Switch><PrivateRoute exact path="/add-experience" component={ AddExperience } /></Switch>
                 <Switch><PrivateRoute exact path="/add-education" component={ AddEducation } /></Switch>
-                <Switch><PrivateRoute exact path="/feed" component={ Ads } /></Switch>
+                <Switch><PrivateRoute exact path="/ads" component={ Ads } /></Switch>
                 <Route exact path="/ad/:id" component={ Ad } />
                 <Route exact path="/not-found" component={ NotFound } />
 
